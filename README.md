@@ -11,4 +11,10 @@ The R script "run_analysis.R" performs several operations on the original datase
 3. Assembles the training set by column-binding (function cbind()) of the subjects' ID numbers, activity ID numbers and the training set (each object has the same number of rows)
 4. Assembles the test set by column-binding (function cbind()) of the subjects' ID numbers, activity ID numbers and the test set (each object has the same number of rows)
 5. Merges the training and test sets (concatenates) with function rbind()
-6. Extracts only the measurements on the mean and standard deviation.
+6. Extracts only the measurements on the mean and standard deviation, which were interpreted as variables "Mean value" (mean()) and "Standard deviation" (std()) estimated from the following signals: tBodyAcc-XYZ, tGravityAcc-XYZ, tBodyAccJerk-XYZ, tBodyGyro-XYZ, tBodyGyroJerk-XYZ, tBodyAccMag, tGravityAccMag, tBodyAccJerkMag, tBodyGyroMag, tBodyGyroJerkMag, fBodyAcc-XYZ, fBodyAccJerk-XYZ, fBodyGyro-XYZ, fBodyAccMag, fBodyAccJerkMag, fBodyGyroMag, fBodyGyroJerkMag. Note that "Weighted average of the frequency components" (meanFreq()) variable and additional vectors used on the angle() variable were excluded from the subset. The subset was obtained by applying the select function of the dplyr package (it is assumed that the package has been pre-installed on your computer), which matched the pattern "mean() or std()" and ignored the pattern "meanFreq or angle" in the variable names.
+7. Uses descriptive activity names to name the activities in the data set. Using the function "merge()" the dataset is merged with activity labels and irrelevant columns are de-selected.  
+8. Appropriately labels the dataset with descriptive variable names. Using gsub(), the variable names are modified: mistakes corrected (pattern "BodyBody" replaced with "Body"), excessive dots and brackets are removed.
+9. Creates a tidy data set with the average of each variable for each activity and each subject. Using the dplyr function group_by, the dataset is split into different activity types and then subjects. Dplyr function "summarise_each" calculates the mean for each of the subjects within each activity type.
+10. The resulting dataset is then exported to .txt file with a function write.table().
+11. This tidy new dataset can be again read into R using the function read.table()
+
