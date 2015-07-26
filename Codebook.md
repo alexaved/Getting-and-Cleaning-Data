@@ -1,5 +1,10 @@
 ## Codebook
-The new dataset contains 68 variables. The motivation for choosing variables to subset is given in the Readme.md file.
+The initial dataset was obtained through experiments carried out by a group of 30 volunteers. Each person performed six activities (WALKING, WALKING UPSTAIRS, WALKING DOWNSTAIRS, SITTING, STANDING, LAYING) wearing a smartphone (Samsung Galaxy S II) on the waist. Using its embedded accelerometer and gyroscope, the scientists captured a set of signals (ex. tGravityAccMag, fBodyACCJerk-XYZ) and then estimated a set of variables from them (ex. mean(), energy(), enthropy(), etc.). The initial dataset consists of the training data (70% of observations) and the test data (30% of observations) stored in different files. 
+
+The new dataset contains 68 variables, which are the measurements on the mean and standard deviation, estimated from the following signals: tBodyAcc-XYZ, tGravityAcc-XYZ, tBodyAccJerk-XYZ, tBodyGyro-XYZ, tBodyGyroJerk-XYZ, tBodyAccMag, tGravityAccMag, tBodyAccJerkMag, tBodyGyroMag, tBodyGyroJerkMag, fBodyAcc-XYZ, fBodyAccJerk-XYZ, fBodyGyro-XYZ, fBodyAccMag, fBodyAccJerkMag, fBodyGyroMag, fBodyGyroJerkMag. Note that "Weighted average of the frequency components" (meanFreq()) variable and additional vectors used on the angle() variable were excluded from the subset.
+
+The new dataset groups all observations by activity type and subject and summarises them by calculating the mean of each variable for each subject within each activity type.
+
 ### How to read and interpret the variable names:
 t: time domain signal
 f: frequency domain signal
